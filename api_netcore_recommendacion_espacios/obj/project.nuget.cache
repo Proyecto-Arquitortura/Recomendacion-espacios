@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "WqjfQ8LWY+GJQRgxWe7dnc5mT3ombNHK7O4XGOhpe9KCrpjVfq85153/wQLG4GCmdhbUjdKMnfZCzZqMY8vi7g==",
+  "success": true,
+  "projectFilePath": "F:\\Clases de Universidad\\Arquitectura de Software\\.Net Proyect\\api_netcore_recommendacion_espacios\\api_netcore_recommendacion_espacios\\api_netcore_recommendacion_espacios.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\mqttnet\\3.1.2\\mqttnet.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
