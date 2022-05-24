@@ -19,7 +19,7 @@ namespace api_netcore_recommendacion_espacios.Servicios
                 _mqttClient = factory.CreateMqttClient();
                 _mqttClientOptions = new MqttClientOptionsBuilder()
                     .WithClientId(Guid.NewGuid().ToString())
-                    .WithTcpServer("tcp://10.43.102.29", port : 1883)
+                    .WithTcpServer("tcp://10.43.102.27", port : 1883)
                     .WithCredentials("admin","1234")
                     .WithCleanSession()
                     .Build();
