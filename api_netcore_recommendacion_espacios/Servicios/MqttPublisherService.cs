@@ -19,7 +19,7 @@ namespace api_netcore_recommendacion_espacios.Servicios
                 _mqttClient = factory.CreateMqttClient();
                 _mqttClientOptions = new MqttClientOptionsBuilder()
                     .WithClientId(Guid.NewGuid().ToString())
-                    .WithTcpServer("tcp://10.43.102.27", port : 1883)
+                    .WithTcpServer("10.43.102.27", port : 1883)
                     .WithCredentials("admin","1234")
                     .WithCleanSession()
                     .Build();
@@ -27,6 +27,10 @@ namespace api_netcore_recommendacion_espacios.Servicios
                 {
                      Console.WriteLine("MQTT Connected");
          
+                });
+                _mqttClient.UseDisconnectedHandler(e =>
+                {
+                    Console.WriteLine("MQTT Disconnected");
                 });
                 await _mqttClient.ConnectAsync(_mqttClientOptions);
                 var testMessage = new MqttApplicationMessageBuilder()
@@ -36,6 +40,7 @@ namespace api_netcore_recommendacion_espacios.Servicios
                     .WithRetainFlag()
                     .Build();
                 await _mqttClient.PublishAsync(testMessage);
+                Console.WriteLine("Message Sent.");
                 await _mqttClient.DisconnectAsync();   
 
             }
