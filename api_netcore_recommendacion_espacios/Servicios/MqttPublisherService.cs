@@ -33,15 +33,18 @@ namespace api_netcore_recommendacion_espacios.Servicios
                     Console.WriteLine("MQTT Disconnected");
                 });
                 await _mqttClient.ConnectAsync(_mqttClientOptions);
+                //         - Get jsonString -        //
+                string jsonString = _repo.ToJsonString();
                 var testMessage = new MqttApplicationMessageBuilder()
-                    .WithTopic("test/topic")
-                    .WithPayload("This is a test.")
+                    .WithTopic("topic/espacio_rec")
+                    .WithPayload(jsonString)
                     .WithExactlyOnceQoS()
                     .WithRetainFlag()
                     .Build();
                 await _mqttClient.PublishAsync(testMessage);
+                Console.WriteLine(jsonString);
                 Console.WriteLine("Message Sent.");
-                await _mqttClient.DisconnectAsync();   
+                await _mqttClient.DisconnectAsync();
 
             }
             catch (Exception e)
