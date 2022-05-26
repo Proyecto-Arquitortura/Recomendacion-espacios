@@ -8,6 +8,7 @@ namespace api_netcore_recommendacion_espacios.Data
         IEnumerable<Espacios_Test> GetAllEspacios();
         Espacios_Test GetEspaciosById(int id);
         public void CreateData();
+        public string ToJsonString(int id);
 
     }
 }
