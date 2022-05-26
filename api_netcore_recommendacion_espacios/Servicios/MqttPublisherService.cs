@@ -1,4 +1,5 @@
-﻿using MQTTnet;
+using api_netcore_recommendacion_espacios.Data;
+using MQTTnet;
 using MQTTnet.Client;
 using MQTTnet.Client.Options;
 using System;
@@ -16,6 +17,8 @@ namespace api_netcore_recommendacion_espacios.Servicios
             try
             {
                 var factory = new MqttFactory();
+                var _repo = new MockEspaciosRepo();
+                _repo.CreateData();
                 _mqttClient = factory.CreateMqttClient();
                 _mqttClientOptions = new MqttClientOptionsBuilder()
                     .WithClientId(Guid.NewGuid().ToString())
